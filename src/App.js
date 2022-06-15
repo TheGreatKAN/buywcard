@@ -257,6 +257,20 @@ function App() {
   useEffect(() => {
     getData();
   }, [blockchain.account]);
+  
+  const [showWinter, setShowWinter] = useState(false);
+  
+  window.addEventListener('message',  (event) => {
+    console.log(`received message: ${event.data}`);
+    
+    if (event.data === 'closeWinterCheckoutModal') {
+      setShowWinter(false);
+    }
+  });
+  
+  const toggleWinter = async () => {
+    setShowWinter(true)
+  };
 
   return (
     <><Header /><s.Screen>
@@ -368,6 +382,11 @@ function App() {
                       Buy With Card
                     </StyledButton>
                     */
+                  <StyledButton
+                      onClick={toggleWinter}
+                  >
+                        Buy With Card
+                  </StyledButton>
                   
                   <WinterCheckout 
                           projectId={1090} 
