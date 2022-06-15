@@ -391,7 +391,7 @@ function App() {
                   <WinterCheckout 
                           projectId={1090} 
                           production={true} 
-                          showModal={true} 
+                          showModal={showWinter} 
                    />
                 
                 {blockchain.account === "" ||
